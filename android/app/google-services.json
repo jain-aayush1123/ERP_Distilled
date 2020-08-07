@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "317785209147",
+    "firebase_url": "https://erp-distilled.firebaseio.com",
+    "project_id": "erp-distilled",
+    "storage_bucket": "erp-distilled.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317785209147:android:22bd4e27ab8c7a0abc9f1e",
+        "android_client_info": {
+          "package_name": "u.awsmizng.awsm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317785209147-rafb1jmq6kl6flomvtf49s1irkkgs7ar.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "u.awsmizng.awsm",
+            "certificate_hash": "8c2beb0701ee6eeea2966f97e1f36e7ac148384d"
+          }
+        },
+        {
+          "client_id": "317785209147-f3pdk3l0fse74b5q159qa4vq9jbp02jr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChBoHJB_vCrZtldf1dy2mLn72DioL2eXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317785209147-f3pdk3l0fse74b5q159qa4vq9jbp02jr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
