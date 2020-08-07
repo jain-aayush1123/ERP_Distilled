@@ -1,5 +1,7 @@
 import 'package:erp_distilled/timetable_setter/data/timetable_repo.dart';
 import 'package:erp_distilled/timetable_setter/widgets/timetable_view/timetable_main.dart';
+import 'package:erp_distilled/utils/colors.dart';
+import 'package:erp_distilled/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -124,9 +126,13 @@ class _TimetableSetterState extends State<TimetableSetter> {
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
     ]);
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: MColors.primaryDarkColor),
+    );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ERP Distilled',
+      theme: THEME_DATA,
       home: Scaffold(
         body: SafeArea(
           child: Row(
@@ -140,8 +146,13 @@ class _TimetableSetterState extends State<TimetableSetter> {
                       end: Alignment.topRight,
                       stops: [0.1, 0.9],
                       colors: [
-                        Color(0x4f17ead9),
-                        Color(0x4f6078ea),
+                        // Color(0x4f17ead9),
+                        // Color(0x4f6078ea),
+                        //TODO make them faded
+                        MColors.primaryDarkColor,
+                        MColors.primaryColor,
+
+                        // Colors.red,
                       ],
                     ),
                   ),

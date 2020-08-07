@@ -1,5 +1,6 @@
 import 'package:erp_distilled/authentication/main_login.dart';
-import 'package:erp_distilled/timetable_setter/widgets/main_app.dart';
+import 'package:erp_distilled/utils/colors.dart';
+import 'package:erp_distilled/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:splashscreen/splashscreen.dart';
@@ -19,8 +20,12 @@ class _MySplashScreenState extends State<MySplashScreen> {
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
     ]);
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: MColors.primaryDarkColor),
+    );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: THEME_DATA,
       home: new SplashScreen(
         onClick: () {
           print("AWSM");
@@ -44,13 +49,14 @@ class _MySplashScreenState extends State<MySplashScreen> {
             fontSize: 20,
           ),
         ),
+        // backgroundColor: MColors.primaryColor,
         gradientBackground: LinearGradient(
           begin: Alignment.bottomLeft,
           end: Alignment.topRight,
           stops: [0.1, 0.9],
           colors: [
-            Color(0xff17ead9),
-            Color(0xff6078ea),
+            MColors.primaryColor,
+            MColors.primaryDarkColor,
           ],
         ),
       ),

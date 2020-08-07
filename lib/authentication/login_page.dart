@@ -23,8 +23,6 @@ Future<String> signInWithGoogle() async {
   final FirebaseUser user = authResult.user;
   print(user.displayName);
   print(user.email);
-  // print(user.metadata.creationTime);
-  // print(user.metadata.lastSignInTime);
   print(user.uid);
   print(user.photoUrl);
 

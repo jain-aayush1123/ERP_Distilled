@@ -1,9 +1,9 @@
-import 'package:erp_distilled/dashboard/widgets/home_page.dart';
 import 'package:erp_distilled/local_storage/data/db.dart';
 import 'package:erp_distilled/timetable_setter/data/timetable_entry.dart';
 import 'package:erp_distilled/timetable_setter/widgets/timetable_view/subwidgets/cell.dart';
 import 'package:erp_distilled/timetable_setter/widgets/timetable_view/subwidgets/column_header.dart';
 import 'package:erp_distilled/timetable_setter/widgets/timetable_view/timetable.dart';
+import 'package:erp_distilled/utils/colors.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:flutter/material.dart';
 
@@ -107,10 +107,12 @@ class _TimetableMainState extends State<TimetableMain> {
           ],
         ),
       ),
-      ringColor: Colors.indigoAccent[100],
+      // ringColor: Colors.indigoAccent[100],
+      ringColor: MColors.primaryColor,
       ringDiameter: rad,
       ringWidth: rad / 4,
-      fabColor: Colors.indigoAccent,
+      // fabColor: Colors.indigoAccent,
+      fabColor: MColors.primaryDarkColor,
       options: <Widget>[
         IconButton(
           icon: Icon(Icons.save),
@@ -205,25 +207,25 @@ class _TimetableMainState extends State<TimetableMain> {
     );
   }
 
-  Widget _fabSave(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomRight,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: FloatingActionButton(
-          // mini: true,
-          backgroundColor: Colors.purple,
-          child: Icon(
-            Icons.save,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            widget.parentAction(listOfAllDays);
-          },
-        ),
-      ),
-    );
-  }
+  // Widget _fabSave(BuildContext context) {
+  //   return Align(
+  //     alignment: Alignment.bottomRight,
+  //     child: Padding(
+  //       padding: const EdgeInsets.all(8.0),
+  //       child: FloatingActionButton(
+  //         // mini: true,
+  //         backgroundColor: Colors.purple,
+  //         child: Icon(
+  //           Icons.save,
+  //           color: Colors.white,
+  //         ),
+  //         onPressed: () {
+  //           widget.parentAction(listOfAllDays);
+  //         },
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Future _asyncConfirmDialog({
     BuildContext context,

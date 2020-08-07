@@ -1,3 +1,4 @@
+import 'package:erp_distilled/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class ColumnHeader extends StatelessWidget {
@@ -8,7 +9,8 @@ class ColumnHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        color: Color(0xff6078ea),
+        // color: Color(0xff6078ea),
+        color: MColors.accentColor,
         child: Padding(
           padding: const EdgeInsets.all(3.0),
           child: Align(

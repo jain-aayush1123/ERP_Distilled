@@ -1,3 +1,4 @@
+import 'package:erp_distilled/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class ListViewCourseType extends StatefulWidget {
@@ -22,7 +23,10 @@ class _ListViewCourseTypeState extends State<ListViewCourseType> {
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
                   widget.courseCode,
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               Expanded(
@@ -39,6 +43,7 @@ class _ListViewCourseTypeState extends State<ListViewCourseType> {
                           padding: const EdgeInsets.all(10.0),
                           child: Text(
                             widget.courseTypes.elementAt(index),
+                            style: TextStyle(),
                           ),
                         ),
                       ),
@@ -62,7 +67,8 @@ class _ListViewCourseTypeState extends State<ListViewCourseType> {
               onPressed: () {
                 widget.parentAction("Back");
               },
-              foregroundColor: Colors.blue,
+              // foregroundColor: Colors.red,
+              foregroundColor: MColors.accentColor,
             ),
           ),
         ),

@@ -43,7 +43,13 @@ class _SubListViewState extends State<SubListView> {
             padding:
                 const EdgeInsets.only(bottom: 10.0, left: 10.0, right: 10.0),
             child: TextField(
-              decoration: new InputDecoration(labelText: "Course Code: "),
+              decoration: new InputDecoration(
+                labelText: "Course Code: ",
+                labelStyle: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              style: TextStyle(color: Colors.white),
               controller: controller,
             ),
           ),

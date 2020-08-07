@@ -1,3 +1,4 @@
+import 'package:erp_distilled/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class ListViewClasses extends StatefulWidget {
@@ -30,7 +31,10 @@ class _ListViewClassesState extends State<ListViewClasses> {
                     const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
                 child: Text(
                   widget.courseCode,
-                  style: TextStyle(fontWeight: FontWeight.w400),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               Center(
@@ -38,7 +42,10 @@ class _ListViewClassesState extends State<ListViewClasses> {
                   padding: const EdgeInsets.all(5.0),
                   child: Text(
                     widget.classes.elementAt(0).courseName,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -66,7 +73,8 @@ class _ListViewClassesState extends State<ListViewClasses> {
               onPressed: () {
                 widget.parentActionBack("true");
               },
-              foregroundColor: Colors.blue,
+              // foregroundColor: Colors.blue,
+              foregroundColor: MColors.accentColor,
             ),
           ),
         ),
