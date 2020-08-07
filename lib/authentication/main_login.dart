@@ -2,6 +2,7 @@ import 'package:erp_distilled/authentication/login_page.dart';
 import 'package:erp_distilled/dashboard/widgets/home_page.dart';
 import 'package:erp_distilled/timetable_setter/widgets/main_app.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginMain extends StatefulWidget {
@@ -42,10 +43,10 @@ class _LoginMainState extends State<LoginMain> {
   @override
   Widget build(BuildContext context) {
     print(userName);
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Login",
-      home: userName == null ? LoginPage() : HomePage(),
+    //TODO fix is no auth found
+    return Scaffold(
+      // body: userName == null ? LoginPage() : HomePage(),
+      body: userName == null ? LoginPage() : TimetableSetter(),
     );
   }
 }

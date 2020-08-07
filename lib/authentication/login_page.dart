@@ -39,7 +39,11 @@ Future<String> signInWithGoogle() async {
   final FirebaseUser currentUser = await _auth.currentUser();
   assert(user.uid == currentUser.uid);
 
-  return 'signInWithGoogle succeeded: $user';
+  // return 'signInWithGoogle succeeded: $user';
+  if (user != null) {
+    return user.email;
+  }
+  return null;
 }
 
 void signOutGoogle() async {
@@ -74,15 +78,25 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
         body: Stack(
       children: <Widget>[
-        Image.asset('assets/images/get_started_back.png'),
+        //TODO add background here
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+              stops: [0.1, 0.9],
+              colors: [
+                Color(0xff17ead9),
+                Color(0xff6078ea),
+              ],
+            ),
+          ),
+        ),
         Container(
           child: Padding(
-            padding: const EdgeInsets.only(
-              top: 100.0,
-              left: 40,
-            ),
+            padding: const EdgeInsets.all(100.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
@@ -100,20 +114,32 @@ class _LoginPageState extends State<LoginPage> {
                 //       fontSize: 38 / 1.6,
                 //       fontWeight: FontWeight.w700),
                 // ),
-                SizedBox(
-                  height: 300,
-                ),
+                //        SizedBox(
+                //        height: 300,
+                //    ),
                 InkWell(
-                  onTap: () {
-                    signInWithGoogle().whenComplete(() {
+                  onTap: () async {
+                    // signInWithGoogle().whenComplete(() {
+                    //   Navigator.of(context).push(
+                    //     MaterialPageRoute(
+                    //       builder: (context) {
+                    //         return HomePage();
+                    //       },
+                    //     ),
+                    //   );
+                    // });
+                    String blah = await signInWithGoogle();
+                    if (blah != null) {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) {
-                            return HomePage();
+                            //TODO redirect to home page to display dashboard
+                            // return HomePage();
+                            return TimetableSetter();
                           },
                         ),
                       );
-                    });
+                    } else {}
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,

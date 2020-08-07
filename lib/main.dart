@@ -1,6 +1,7 @@
 import 'package:erp_distilled/authentication/main_login.dart';
 import 'package:erp_distilled/timetable_setter/widgets/main_app.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,6 +15,10 @@ class MySplashScreen extends StatefulWidget {
 class _MySplashScreenState extends State<MySplashScreen> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: new SplashScreen(

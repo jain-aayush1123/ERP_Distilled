@@ -1,6 +1,5 @@
 import 'package:erp_distilled/dashboard/widgets/home_page.dart';
 import 'package:erp_distilled/local_storage/data/db.dart';
-import 'package:erp_distilled/local_storage/data/db_timetable_entry.dart';
 import 'package:erp_distilled/timetable_setter/data/timetable_entry.dart';
 import 'package:erp_distilled/timetable_setter/widgets/timetable_view/subwidgets/cell.dart';
 import 'package:erp_distilled/timetable_setter/widgets/timetable_view/subwidgets/column_header.dart';
@@ -31,6 +30,9 @@ class _TimetableMainState extends State<TimetableMain> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    double rad = width > height ? height : width;
     listOfAllDays = new List();
 
     TimetableTools tools = new TimetableTools();
@@ -106,68 +108,72 @@ class _TimetableMainState extends State<TimetableMain> {
         ),
       ),
       ringColor: Colors.indigoAccent[100],
-      ringDiameter: MediaQuery.of(context).size.width,
-      ringWidth: MediaQuery.of(context).size.width / 4,
+      ringDiameter: rad,
+      ringWidth: rad / 4,
       fabColor: Colors.indigoAccent,
       options: <Widget>[
         IconButton(
-            icon: Icon(Icons.save),
-            splashColor: Colors.indigoAccent[400],
-            tooltip: "Save to Local storage",
-            onPressed: () {
-              widget.parentAction(listOfAllDays);
-              _saveToLocalDatabase();
-            },
-            iconSize: 40.0,
-            color: Colors.white),
+          icon: Icon(Icons.save),
+          splashColor: Colors.indigoAccent[400],
+          tooltip: "Save",
+          onPressed: () {
+            widget.parentAction(listOfAllDays);
+            _saveToLocalDatabase();
+          },
+          iconSize: 40.0,
+          color: Colors.white,
+        ),
         IconButton(
-            icon: Icon(Icons.sd_card),
-            splashColor: Colors.indigoAccent[400],
-            tooltip: "Read from Local storage",
-            onPressed: () {
-              // _saveToLocalDatabase();
-              _printLocal();
-            },
-            iconSize: 40.0,
-            color: Colors.white),
+          icon: Icon(Icons.remove_red_eye),
+          splashColor: Colors.indigoAccent[400],
+          tooltip: "Read",
+          onPressed: () {
+            // _saveToLocalDatabase();
+            _printLocal();
+          },
+          iconSize: 40.0,
+          color: Colors.white,
+        ),
+        // IconButton(
+        //     icon: Icon(Icons.cloud_upload),
+        //     splashColor: Colors.indigoAccent[400],
+        //     tooltip: "Upload to Cloud",
+        //     onPressed: () {},
+        //     iconSize: 40.0,
+        //     color: Colors.white),
+        // IconButton(
+        //     icon: Icon(Icons.cloud_download),
+        //     splashColor: Colors.indigoAccent[400],
+        //     tooltip: "Download from Cloud",
+        //     onPressed: () {},
+        //     iconSize: 40.0,
+        //     color: Colors.white),
         IconButton(
-            icon: Icon(Icons.cloud_upload),
-            splashColor: Colors.indigoAccent[400],
-            tooltip: "Upload to Cloud",
-            onPressed: () {},
-            iconSize: 40.0,
-            color: Colors.white),
-        IconButton(
-            icon: Icon(Icons.cloud_download),
-            splashColor: Colors.indigoAccent[400],
-            tooltip: "Download from Cloud",
-            onPressed: () {},
-            iconSize: 40.0,
-            color: Colors.white),
-        IconButton(
-            icon: Icon(Icons.delete),
-            splashColor: Colors.indigoAccent[400],
-            tooltip: "Delete All",
-            onPressed: () {
-              _deleteAll();
-            },
-            iconSize: 40.0,
-            color: Colors.white),
-        IconButton(
-            icon: Icon(Icons.exit_to_app),
-            splashColor: Colors.indigoAccent[400],
-            tooltip: "Exit",
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return HomePage();
-                  },
-                ),
-              );
-            },
-            iconSize: 40.0,
-            color: Colors.white),
+          icon: Icon(Icons.delete),
+          splashColor: Colors.indigoAccent[400],
+          tooltip: "Delete All",
+          onPressed: () {
+            _deleteAll();
+          },
+          iconSize: 40.0,
+          color: Colors.white,
+        ),
+        // IconButton(
+        //   icon: Icon(Icons.exit_to_app),
+        //   splashColor: Colors.indigoAccent[400],
+        //   tooltip: "Exit",
+        //   onPressed: () {
+        //     Navigator.of(context).push(
+        //       MaterialPageRoute(
+        //         builder: (context) {
+        //           return HomePage();
+        //         },
+        //       ),
+        //     );
+        //   },
+        //   iconSize: 40.0,
+        //   color: Colors.white,
+        // ),
       ],
     );
   }
@@ -269,6 +275,10 @@ class _TimetableMainState extends State<TimetableMain> {
   _saveToLocalDatabase() async {
     DBProvider.db.saveLocal(listOfAllDays);
   }
+
+  // _readFromLocalDatabase() async {
+  //   DBProvider.db.saveLocal(listOfAllDays);
+  // }
 
   _printLocal() async {
     TimetableTools tools = new TimetableTools();
