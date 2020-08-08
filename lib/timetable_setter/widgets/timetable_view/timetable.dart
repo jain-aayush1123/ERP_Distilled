@@ -39,11 +39,11 @@ class TimetableTools {
     List listThu = new List();
     List listFri = new List();
     List listSat = new List();
-    generateEmptyLists(listMon, 10);
-    generateEmptyLists(listTue, 10);
-    generateEmptyLists(listWed, 10);
-    generateEmptyLists(listThu, 10);
-    generateEmptyLists(listFri, 10);
+    generateEmptyLists(listMon, 12);
+    generateEmptyLists(listTue, 12);
+    generateEmptyLists(listWed, 12);
+    generateEmptyLists(listThu, 12);
+    generateEmptyLists(listFri, 12);
     generateEmptyLists(listSat, 10);
     listOfAllDays.add(listMon);
     listOfAllDays.add(listTue);

@@ -207,26 +207,6 @@ class _TimetableMainState extends State<TimetableMain> {
     );
   }
 
-  // Widget _fabSave(BuildContext context) {
-  //   return Align(
-  //     alignment: Alignment.bottomRight,
-  //     child: Padding(
-  //       padding: const EdgeInsets.all(8.0),
-  //       child: FloatingActionButton(
-  //         // mini: true,
-  //         backgroundColor: Colors.purple,
-  //         child: Icon(
-  //           Icons.save,
-  //           color: Colors.white,
-  //         ),
-  //         onPressed: () {
-  //           widget.parentAction(listOfAllDays);
-  //         },
-  //       ),
-  //     ),
-  //   );
-  // }
-
   Future _asyncConfirmDialog({
     BuildContext context,
     TimetableEntry entry,
