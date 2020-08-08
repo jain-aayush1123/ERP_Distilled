@@ -1,4 +1,3 @@
-import 'package:erp_distilled/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class ListViewClasses extends StatefulWidget {
@@ -73,8 +72,7 @@ class _ListViewClassesState extends State<ListViewClasses> {
               onPressed: () {
                 widget.parentActionBack("true");
               },
-              // foregroundColor: Colors.blue,
-              foregroundColor: MColors.accentColor,
+              // backgroundColor: MColors.accentColor,
             ),
           ),
         ),
