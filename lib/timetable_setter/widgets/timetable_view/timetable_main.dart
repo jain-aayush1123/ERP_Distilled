@@ -25,8 +25,15 @@ class TimetableMain extends StatefulWidget {
 
 class _TimetableMainState extends State<TimetableMain> {
   String err = "";
+  bool hasError;
   bool visible = false;
   List listOfAllDays = new List();
+
+  @override
+  void initState() {
+    super.initState();
+    hasError = false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +65,8 @@ class _TimetableMainState extends State<TimetableMain> {
         });
       } else {
         //show error
+        // Scaffold.of(context)
+        //     .showSnackBar(SnackBar(content: Text('Yay! A SnackBar!')));
       }
     }
 
@@ -65,6 +74,10 @@ class _TimetableMainState extends State<TimetableMain> {
       child: Container(
         child: Stack(
           children: <Widget>[
+            hasError
+                //TODO
+                ? _snackbar(context)
+                : Container(),
             Column(
               children: <Widget>[
                 Row(
@@ -205,6 +218,15 @@ class _TimetableMainState extends State<TimetableMain> {
         },
       ),
     );
+  }
+
+  Widget _snackbar(BuildContext context) {
+    Scaffold.of(context)
+        .showSnackBar(SnackBar(content: Text('Yay! A SnackBar!')));
+    setState(() {
+      hasError = false;
+    });
+    return Container();
   }
 
   Future _asyncConfirmDialog({
