@@ -16,7 +16,7 @@ class TimetableRepo {
       List cells = rowItem.split(',');
       //* filters out the headers
       if (cells.length > 2 &&
-          cells[0] != "Unnamed: 0" &&
+          cells[0] != "\"COM COD\"" &&
           cells[1] != garbageEntry) {
         //* fills the empty cells by carrying forward last written data
         //* also sorts out tuts/practicals/lectures
@@ -69,12 +69,12 @@ class TimetableRepo {
             //subject type/name is always changing here
             //if sec number is empty here, it means only one section
             //* fills 1 for empty cells if only one section present
-            if (cells[3] == '') {
-              cells[3] = "1";
+            if (cells[5] == '') {
+              cells[5] = "1";
             }
-            if (cells[6].length == 0) {
-              cells[6] = "N/A";
+            if (cells[7].length == 0) {
               cells[7] = "N/A";
+              cells[8] = "N/A";
             }
           }
         }
@@ -87,23 +87,23 @@ class TimetableRepo {
             //if class type same, carry forward the section number
             // creates a duplicate entry with only teacher name different
             //* fills carry forward section number for multiple teachers in same section
-            cells[3] = tempSection;
+            cells[5] = tempSection;
           } else {
-            tempSection = cells[3];
+            tempSection = cells[5];
           }
 
           //* gets hours and days
-          if (cells[6].length != 0) {
-            days = cells[6].split(' ');
-            hours = cells[7].split(' ');
+          if (cells[7].length != 0) {
+            days = cells[7].split(' ');
+            hours = cells[8].split(' ');
           }
 
           TimetableEntry entry = new TimetableEntry(
             courseCode: tempCourseCode,
             courseName: tempCourseName,
-            section: cells[3],
-            instructor: cells[4],
-            room: cells[5],
+            section: cells[5],
+            instructor: cells[6],
+            room: "TBA",
             days: days,
             hours: hours,
             courseType: tempCourseType,
